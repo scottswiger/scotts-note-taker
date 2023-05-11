@@ -6,7 +6,7 @@ const { fileRead, fileWrite, readAndAppend }= require('../utils.js');
 const database = require('../db/db.json');
 
 router.get('/notes', (req, res) => {
-    fileRead(database)
+    fileRead('../db/db.json')
     .then((data) => {
     res.json(JSON.parse(data));
 });
@@ -20,10 +20,10 @@ router.post('/notes', (req, res) => {
             text,
             id: uuidv4()
         };
-        readAndAppend(newNote, database);
+        readAndAppend(newNote, '../db/db.json');
         res.json('Note was added successfully');
     } else {
-        res.errored('Note was not added');
+        res.error('Note was not added');
     }
 });
 
