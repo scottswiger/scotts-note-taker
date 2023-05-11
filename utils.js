@@ -10,6 +10,7 @@ const fileWrite = (destination, content) => {
     );
 };
 
+//Reads and appends data to a file
 const readAndAppend = (content, file) => {
     fs.readFile(file, 'utf8', (err, data) => {
         if (err) {
