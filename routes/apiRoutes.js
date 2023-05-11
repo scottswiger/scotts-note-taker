@@ -26,3 +26,5 @@ router.post('/notes', (req, res) => {
         res.errored('Note was not added');
     }
 });
+
+module.exports = router;
